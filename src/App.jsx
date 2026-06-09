@@ -6,7 +6,9 @@ import Products from './components/Products';
 import Calculator from './components/Calculator';
 import About from './components/About';
 import Footer from './components/Footer';
+import WhatsAppWidget from './components/WhatsAppWidget';
 import './App.css';
+
 
 export default function App() {
   return (
@@ -18,6 +20,7 @@ export default function App() {
       <Calculator />
       <About />
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 }
