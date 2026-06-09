@@ -81,9 +81,9 @@ export default function Footer() {
                 </svg>
                 <span className="footer-contact-text">
                   <strong>Direct Trade Phone:</strong>{' '}
-                  <a 
-                    href="https://wa.me/919949632072?text=Hello%20AVSR%20Rice%20Traders%2C%20I%20am%20interested%20in%20a%20bulk%20rice%20enquiry." 
-                    target="_blank" 
+                  <a
+                    href="https://wa.me/919949632072?text=Hello%20AVSR%20Rice%20Traders%2C%20I%20am%20interested%20in%20a%20bulk%20rice%20enquiry."
+                    target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: 'inherit', textDecoration: 'underline' }}
                   >
