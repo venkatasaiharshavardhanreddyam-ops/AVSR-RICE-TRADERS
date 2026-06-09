@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import logo from '../logo.png';
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,10 +14,7 @@ export default function Navbar() {
       <div className="container nav-container">
         {/* Brand Logo */}
         <a href="#" className="logo-wrap">
-          <svg className="logo-icon" viewBox="0 0 24 24">
-            {/* Custom SVG Rice Husk/Grain Ear icon representing harvest */}
-            <path d="M12 2C11.5 4 10 7 10 10c0 3 1.5 6 2 8 .5-2 2-5 2-8 0-3-1.5-6-2-8zm-3 4C8.5 7.5 7 10 7 12c0 2.5 1.5 5 2 6.5.3-1.5 1.3-4 1.3-6.5S9.3 7.5 9 6zm6 0c-.3 1.5-1.3 4-1.3 6.5s1 5 1.3 6.5c.5-1.5 2-4 2-6.5 0-2-1.5-4.5-2-6.5z" />
-          </svg>
+          <img src={logo} alt="AVSR Rice Traders Logo" className="logo-icon" />
           <span>AVSR RICE TRADERS</span>
         </a>
 
