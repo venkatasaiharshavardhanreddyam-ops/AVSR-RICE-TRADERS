@@ -9,7 +9,7 @@ export default function MapSection() {
     <section className="section map-section">
       <div className="container">
         <div className="section-title-wrap">
-          <span className="section-subtitle">Get DIRECTIONS</span>
+          <span className="section-subtitle">DIRECTION GUIDANCE</span>
           <h2 className="section-title">Our Operational Location</h2>
         </div>
 
