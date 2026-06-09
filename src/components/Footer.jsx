@@ -46,11 +46,12 @@ export default function Footer() {
           <div className="footer-col">
             <h4 className="footer-title">Our Grains</h4>
             <ul className="footer-links">
-              <li><a href="#varieties">Traditional Basmati</a></li>
-              <li><a href="#varieties">1121 Golden Sella</a></li>
-              <li><a href="#varieties">Sona Masoori Raw</a></li>
-              <li><a href="#varieties">Thai Jasmine Rice</a></li>
-              <li><a href="#varieties">Idli Broken Rice</a></li>
+              <li><a href="#varieties">Traditional Aged Basmati</a></li>
+              <li><a href="#varieties">1121 Golden Sella Basmati</a></li>
+              <li><a href="#varieties">Nellore Sona Masoori</a></li>
+              <li><a href="#varieties">Jilakara</a></li>
+              <li><a href="#varieties">Chittimuthyalu</a></li>
+              <li><a href="#varieties">Broken Rice / Nukalu</a></li>
             </ul>
           </div>
 
