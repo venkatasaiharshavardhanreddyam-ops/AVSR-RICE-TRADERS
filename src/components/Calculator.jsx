@@ -49,14 +49,14 @@ export default function Calculator() {
   return (
     <section id="calculator" className="section">
       <div className="container">
-        
+
         <div className="section-title-wrap">
           <span className="section-subtitle">FOB & Logistics Calculator</span>
           <h2 className="section-title">Calculate Your Wholesale Shipping Tier</h2>
         </div>
 
         <div className="calc-container">
-          
+
           {/* Left Panel: Information & Tiers explanation */}
           <div className="calc-info-pane">
             <h3 className="calc-info-title">Wholesale Order Thresholds</h3>
@@ -67,19 +67,19 @@ export default function Calculator() {
             <ul className="calc-features-list">
               <li className="calc-feat-item">
                 <svg className="calc-feat-icon" viewBox="0 0 24 24">
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
                 <span><strong>Ex-Warehouse (Under 5 MT):</strong> Buyer handles packaging transport from mill gate.</span>
               </li>
               <li className="calc-feat-item">
                 <svg className="calc-feat-icon" viewBox="0 0 24 24">
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
                 <span><strong>Wholesale Tier 2 (5–20 MT):</strong> Standard domestic truck dispatch or partial container loading.</span>
               </li>
               <li className="calc-feat-item">
                 <svg className="calc-feat-icon" viewBox="0 0 24 24">
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
                 <span><strong>Contract Tier 1 (Over 20 MT):</strong> Direct container loading (FCL / 20ft Cargo) with mill discount.</span>
               </li>
@@ -90,11 +90,11 @@ export default function Calculator() {
           <div className="calc-form-pane">
             {!submitted ? (
               <form onSubmit={handleSubmit} className="calc-form-wrap">
-                
+
                 <div className="form-group">
                   <label className="form-label">Select Rice Variety</label>
-                  <select 
-                    value={variety} 
+                  <select
+                    value={variety}
                     onChange={(e) => setVariety(e.target.value)}
                     className="form-select"
                   >
@@ -114,19 +114,19 @@ export default function Calculator() {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="form-group">
                     <label className="form-label">Quantity</label>
-                    <input 
-                      type="number" 
-                      min="1" 
+                    <input
+                      type="number"
+                      min="1"
                       required
-                      value={quantity} 
+                      value={quantity}
                       onChange={(e) => setQuantity(e.target.value)}
                       className="form-input"
                     />
                   </div>
                   <div className="form-group">
                     <label className="form-label">Unit</label>
-                    <select 
-                      value={unit} 
+                    <select
+                      value={unit}
                       onChange={(e) => setUnit(e.target.value)}
                       className="form-select"
                     >
@@ -138,8 +138,8 @@ export default function Calculator() {
 
                 <div className="form-group">
                   <label className="form-label">Packaging Bag Size</label>
-                  <select 
-                    value={bagSize} 
+                  <select
+                    value={bagSize}
                     onChange={(e) => setBagSize(e.target.value)}
                     className="form-select"
                   >
