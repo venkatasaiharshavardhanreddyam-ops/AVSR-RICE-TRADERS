@@ -38,7 +38,7 @@ export default function Products() {
     ],
     'Andhra Brands': [
       {
-        title: "Premium Sona Masoori",
+        title: "Sona Masoori",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfQWWvty86VvvFjnFpEqDjXtUjscQV8LfHxw&s",
         tag: "Southern Classic",
         length: "5.20 mm Average",
@@ -46,7 +46,7 @@ export default function Products() {
         packing: "25kg, 50kg Bags"
       },
       {
-        title: "Traditional Ponni Raw Rice",
+        title: "Nellore Sona Masoori",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLTsfTD-jUDdASlLE4BqqxWTn89RpklJFfw&s",
         tag: "Traditional Raw",
         length: "5.00 mm Average",
@@ -54,7 +54,7 @@ export default function Products() {
         packing: "20kg, 50kg Bags"
       },
       {
-        title: "Long-Grain White Rice",
+        title: "NDLR7",
         image: "https://tiimg.tistatic.com/fp/1/007/665/long-grain-white-rice-in-hard-texture-and-high-in-protein-for-human-consumption-784.jpg",
         tag: "Utility / Catering",
         length: "6.20 mm Average",
@@ -62,7 +62,7 @@ export default function Products() {
         packing: "25kg, 50kg Bags"
       },
       {
-        title: "Thai Jasmine Rice",
+        title: "Jilakara",
         image: "https://ametheus.com/wp-content/uploads/2025/08/jeerakashala_rice_tulsidas_close_up-e1756450091910.webp",
         tag: "Aromatic Import",
         length: "6.80 mm Average",
@@ -72,7 +72,7 @@ export default function Products() {
     ],
     'Boiled & Broken': [
       {
-        title: "Premium Parboiled Sella",
+        title: "Boiled Rice",
         image: "https://m.media-amazon.com/images/I/41SOexK0b0L._AC_UF894,1000_QL80_.jpg",
         tag: "High Yielding",
         length: "6.00 mm Average",
@@ -80,7 +80,7 @@ export default function Products() {
         packing: "25kg, 50kg Bags"
       },
       {
-        title: "Short Grain Idli Specialty",
+        title: "Chittimuthyalu",
         image: "https://5.imimg.com/data5/SELLER/Default/2025/1/479469759/JQ/KK/YT/180338471/small-grain-basmati-rice.jpg",
         tag: "Fermentation Grade",
         length: "4.80 mm Average",
@@ -88,7 +88,7 @@ export default function Products() {
         packing: "25kg, 50kg Bags"
       },
       {
-        title: "100% Broken White Rice",
+        title: "Broken Rice / Nukalu",
         image: "https://cpimg.tistatic.com/05980105/b/4/100-Broken-Rice.jpg",
         tag: "Industrial / Flour Mills",
         length: "Broken Grits",
