@@ -22,7 +22,7 @@ export default function Products() {
       },
       {
         title: "1121 Golden Sella Basmati",
-        image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80",
+        image: "https://grainvilleindia.com/wp-content/uploads/2023/07/pusa-golden-sella-basmati-rice.png",
         tag: "Parboiled Sella",
         length: "8.35 mm+ Average",
         moisture: "11.5% Maximum",
