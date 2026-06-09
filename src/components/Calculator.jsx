@@ -1,49 +1,84 @@
 import React, { useState } from 'react';
 
+const RICE_VARIETIES = {
+  'basmati-aged': { name: 'Traditional Aged Basmati', pricePerKg: 100 },
+  'basmati-1121': { name: '1121 Golden Sella Basmati', pricePerKg: 110 },
+  'super-kernel': { name: 'Super Kernel Fragrant Basmati', pricePerKg: 95 },
+  'sona-masoori': { name: 'Sona Masoori', pricePerKg: 50 },
+  'nellore-sona': { name: 'Nellore Sona Masoori', pricePerKg: 55 },
+  'ndlr7': { name: 'NDLR7', pricePerKg: 45 },
+  'jilakara': { name: 'Jilakara', pricePerKg: 75 },
+  'boiled-rice': { name: 'Boiled Rice', pricePerKg: 40 },
+  'chittimuthyalu': { name: 'Chittimuthyalu', pricePerKg: 80 },
+  'broken-nukalu': { name: 'Broken Rice / Nukalu', pricePerKg: 30 }
+};
+
 export default function Calculator() {
   const [variety, setVariety] = useState('basmati-aged');
-  const [quantity, setQuantity] = useState('10');
-  const [unit, setUnit] = useState('mt'); // mt (Metric Tons) or bags
-  const [bagSize, setBagSize] = useState('50'); // 25kg or 50kg
+  const [bagSize, setBagSize] = useState('25'); // 10, 20, 25, 50 kg
+  const [quantity, setQuantity] = useState('5');
+  const [delivery, setDelivery] = useState('local'); // pickup, local, district
   const [submitted, setSubmitted] = useState(false);
 
-  // Calculate outputs
-  const qtyNum = parseFloat(quantity) || 0;
-  let totalMT = 0;
-  let totalBags = 0;
+  // Calculations
+  const qtyNum = parseInt(quantity, 10) || 0;
+  const sizeNum = parseInt(bagSize, 10) || 0;
+  const totalWeight = qtyNum * sizeNum;
 
-  if (unit === 'mt') {
-    totalMT = qtyNum;
-    totalBags = (totalMT * 1000) / parseFloat(bagSize);
-  } else {
-    totalBags = qtyNum;
-    totalMT = (totalBags * parseFloat(bagSize)) / 1000;
-  }
+  const selectedVariety = RICE_VARIETIES[variety] || RICE_VARIETIES['basmati-aged'];
+  const pricePerBag = selectedVariety.pricePerKg * sizeNum;
+  const riceCost = pricePerBag * qtyNum;
 
-  // Tier categorization logic
+  let deliveryCost = 0;
   let tierText = "";
   let alertClass = "";
 
-  if (totalMT < 5) {
-    tierText = "Minimum wholesale delivery is 5 MT. Smaller orders are Ex-Warehouse pickup only (Ex-Works).";
-    alertClass = "alert-warning";
-  } else if (totalMT >= 5 && totalMT <= 20) {
-    tierText = "Tier 2 Wholesale Pricing Applies (Standard Truckload Delivery - 10-Wheeler / Flatbed).";
+  if (delivery === 'pickup') {
+    deliveryCost = 0;
+    tierText = "Self-Pickup Selected. Please visit our shop at 4/53-A, Kotanguruvayapalli, Khajipet for collection.";
     alertClass = "alert-info";
+  } else if (delivery === 'local') {
+    if (qtyNum >= 3) {
+      deliveryCost = 0;
+      tierText = "Eligible for FREE home delivery within Khajipet!";
+      alertClass = "alert-success";
+    } else {
+      deliveryCost = 50;
+      tierText = "Standard Khajipet Delivery: ₹50. Tip: Add more bags to get FREE delivery!";
+      alertClass = "alert-warning";
+    }
   } else {
-    tierText = "Tier 1 Contract Pricing Eligible (Full Container Load / Multi-Axle Truck Delivery - High volume discount).";
-    alertClass = "alert-success";
+    // district delivery
+    deliveryCost = 150 + (qtyNum * 20);
+    tierText = `Kadapa District Delivery: ₹${deliveryCost} (Flat ₹150 + ₹20/bag dispatch cost).`;
+    alertClass = "alert-info";
   }
+
+  const totalCost = riceCost + deliveryCost;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (qtyNum <= 0) return;
+
+    // Build pre-filled WhatsApp message
+    const deliveryLabel = {
+      pickup: 'Store Pickup (Khajipet)',
+      local: 'Khajipet Local Delivery',
+      district: 'Kadapa District Delivery'
+    }[delivery];
+
+    const message = `Hello AVSR Rice Traders,\n\nI want to order rice bags:\n- Variety: ${selectedVariety.name}\n- Bag Size: ${sizeNum} kg\n- Quantity: ${qtyNum} bags\n- Total Weight: ${totalWeight} kg\n- Delivery: ${deliveryLabel}\n- Est. Cost: ₹${totalCost.toLocaleString()} (Rice: ₹${riceCost.toLocaleString()} + Delivery: ₹${deliveryCost})\n\nPlease confirm availability and delivery time.`;
+    
+    const whatsappUrl = `https://wa.me/919949632072?text=${encodeURIComponent(message)}`;
+    
+    // Redirect
+    window.open(whatsappUrl, '_blank');
     setSubmitted(true);
   };
 
   const handleReset = () => {
     setSubmitted(false);
-    setQuantity('10');
+    setQuantity('5');
   };
 
   return (
@@ -51,17 +86,17 @@ export default function Calculator() {
       <div className="container">
 
         <div className="section-title-wrap">
-          <span className="section-subtitle">FOB & Logistics Calculator</span>
-          <h2 className="section-title">Calculate Your Wholesale Shipping Tier</h2>
+          <span className="section-subtitle">Bag Estimator & Order Tool</span>
+          <h2 className="section-title">Calculate Your Rice Bag Order</h2>
         </div>
 
         <div className="calc-container">
 
-          {/* Left Panel: Information & Tiers explanation */}
+          {/* Left Panel: Information */}
           <div className="calc-info-pane">
-            <h3 className="calc-info-title">Wholesale Order Thresholds</h3>
+            <h3 className="calc-info-title">Store Pickup & Delivery</h3>
             <p className="calc-info-text">
-              We process B2B purchase agreements starting from 5 Metric Tons. Logistics coordination depends on volume thresholds. Use the calculator to estimate requirements for cargo shipping.
+              We supply high-quality rice bags directly to households, catering groups, weddings, and local shops in Khajipet and YSR Kadapa district. Use this calculator to plan your purchase.
             </p>
 
             <ul className="calc-features-list">
@@ -69,19 +104,19 @@ export default function Calculator() {
                 <svg className="calc-feat-icon" viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
-                <span><strong>Ex-Warehouse (Under 5 MT):</strong> Buyer handles packaging transport from mill gate.</span>
+                <span><strong>Store Pickup:</strong> Free pickup at Kotanguruvayapalli, Khajipet.</span>
               </li>
               <li className="calc-feat-item">
                 <svg className="calc-feat-icon" viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
-                <span><strong>Wholesale Tier 2 (5–20 MT):</strong> Standard domestic truck dispatch or partial container loading.</span>
+                <span><strong>Local Delivery:</strong> Free local delivery inside Khajipet on orders of 3+ bags.</span>
               </li>
               <li className="calc-feat-item">
                 <svg className="calc-feat-icon" viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
                 </svg>
-                <span><strong>Contract Tier 1 (Over 20 MT):</strong> Direct container loading (FCL / 20ft Cargo) with mill discount.</span>
+                <span><strong>District Delivery:</strong> Pocket-friendly transport charges for villages across Kadapa.</span>
               </li>
             </ul>
           </div>
@@ -98,22 +133,35 @@ export default function Calculator() {
                     onChange={(e) => setVariety(e.target.value)}
                     className="form-select"
                   >
-                    <option value="basmati-aged">Traditional Aged Basmati</option>
-                    <option value="basmati-1121">1121 Golden Sella Basmati</option>
-                    <option value="super-kernel">Super Kernel Fragrant Basmati</option>
-                    <option value="sona-masoori">Sona Masoori</option>
-                    <option value="nellore-sona">Nellore Sona Masoori</option>
-                    <option value="ndlr7">NDLR7</option>
-                    <option value="jilakara">Jilakara</option>
-                    <option value="boiled-rice">Boiled Rice</option>
-                    <option value="chittimuthyalu">Chittimuthyalu</option>
-                    <option value="broken-nukalu">Broken Rice / Nukalu</option>
+                    <option value="basmati-aged">Traditional Aged Basmati (₹100/kg)</option>
+                    <option value="basmati-1121">1121 Golden Sella Basmati (₹110/kg)</option>
+                    <option value="super-kernel">Super Kernel Fragrant Basmati (₹95/kg)</option>
+                    <option value="sona-masoori">Sona Masoori (₹50/kg)</option>
+                    <option value="nellore-sona">Nellore Sona Masoori (₹55/kg)</option>
+                    <option value="ndlr7">NDLR7 (₹45/kg)</option>
+                    <option value="jilakara">Jilakara (₹75/kg)</option>
+                    <option value="boiled-rice">Boiled Rice (₹40/kg)</option>
+                    <option value="chittimuthyalu">Chittimuthyalu (₹80/kg)</option>
+                    <option value="broken-nukalu">Broken Rice / Nukalu (₹30/kg)</option>
                   </select>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="form-group">
-                    <label className="form-label">Quantity</label>
+                    <label className="form-label">Bag Size</label>
+                    <select
+                      value={bagSize}
+                      onChange={(e) => setBagSize(e.target.value)}
+                      className="form-select"
+                    >
+                      <option value="10">10 kg Bag</option>
+                      <option value="20">20 kg Bag</option>
+                      <option value="25">25 kg Bag</option>
+                      <option value="50">50 kg Bag</option>
+                    </select>
+                  </div>
+                  <div className="form-group">
+                    <label className="form-label">Quantity (Bags)</label>
                     <input
                       type="number"
                       min="1"
@@ -123,40 +171,44 @@ export default function Calculator() {
                       className="form-input"
                     />
                   </div>
-                  <div className="form-group">
-                    <label className="form-label">Unit</label>
-                    <select
-                      value={unit}
-                      onChange={(e) => setUnit(e.target.value)}
-                      className="form-select"
-                    >
-                      <option value="mt">Metric Tons (MT)</option>
-                      <option value="bags">Bags</option>
-                    </select>
-                  </div>
                 </div>
 
                 <div className="form-group">
-                  <label className="form-label">Packaging Bag Size</label>
+                  <label className="form-label">Delivery Mode</label>
                   <select
-                    value={bagSize}
-                    onChange={(e) => setBagSize(e.target.value)}
+                    value={delivery}
+                    onChange={(e) => setDelivery(e.target.value)}
                     className="form-select"
                   >
-                    <option value="25">25 kg bags</option>
-                    <option value="50">50 kg bags</option>
+                    <option value="pickup">Self-Pickup at Shop (Free)</option>
+                    <option value="local">Khajipet Local Delivery (Free for 3+ bags)</option>
+                    <option value="district">Kadapa District Doorstep Delivery</option>
                   </select>
                 </div>
 
                 {/* Live calculated outputs */}
                 <div className="bg-slate-50 p-4 rounded-lg border border-slate-200 space-y-2 mt-2">
                   <div className="flex justify-between text-xs">
-                    <span className="text-slate-500">Total Calculated Weight:</span>
-                    <span className="font-bold text-slate-800">{totalMT.toFixed(2)} MT</span>
+                    <span className="text-slate-500">Total Weight:</span>
+                    <span className="font-bold text-slate-800">{totalWeight} kg</span>
                   </div>
                   <div className="flex justify-between text-xs">
-                    <span className="text-slate-500">Equivalent Bags Count:</span>
-                    <span className="font-bold text-slate-800">{Math.ceil(totalBags).toLocaleString()} Bags</span>
+                    <span className="text-slate-500">Price per Bag:</span>
+                    <span className="font-bold text-slate-800">₹{pricePerBag.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-slate-500">Rice Cost:</span>
+                    <span className="font-bold text-slate-800">₹{riceCost.toLocaleString()}</span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-slate-500">Delivery Charge:</span>
+                    <span className="font-bold text-slate-800">
+                      {deliveryCost === 0 ? 'FREE' : `₹${deliveryCost}`}
+                    </span>
+                  </div>
+                  <div className="flex justify-between border-t border-slate-200 pt-2 text-sm">
+                    <span className="font-semibold text-slate-600">Estimated Total:</span>
+                    <span className="font-extrabold text-slate-900 text-base">₹{totalCost.toLocaleString()}</span>
                   </div>
                 </div>
 
@@ -168,7 +220,7 @@ export default function Calculator() {
                 )}
 
                 <button type="submit" className="btn btn-primary w-full mt-2">
-                  Generate Quotation Enquiry
+                  Send Order Inquiry via WhatsApp
                 </button>
 
               </form>
@@ -178,13 +230,13 @@ export default function Calculator() {
                   ✓
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-slate-800">Enquiry Successfully Logged</h3>
+                  <h3 className="text-xl font-bold text-slate-800">Inquiry Sent to WhatsApp</h3>
                   <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-                    We have compiled your logistics estimates ({totalMT.toFixed(1)} MT / {Math.ceil(totalBags).toLocaleString()} bags of {variety.replace("-", " ")}). A wholesale representative will contact you with specific container/freight pricing rates.
+                    We have generated your order details: {qtyNum} bags of {selectedVariety.name} ({totalWeight} kg total). Your browser has opened WhatsApp to send this message to us.
                   </p>
                 </div>
                 <button onClick={handleReset} className="btn btn-outline w-full">
-                  Create Another Estimate
+                  Estimate Another Order
                 </button>
               </div>
             )}

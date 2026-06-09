@@ -23,10 +23,10 @@ export default function Footer() {
               <svg className="logo-icon" viewBox="0 0 24 24">
                 <path d="M12 2C11.5 4 10 7 10 10c0 3 1.5 6 2 8 .5-2 2-5 2-8 0-3-1.5-6-2-8zm-3 4C8.5 7.5 7 10 7 12c0 2.5 1.5 5 2 6.5.3-1.5 1.3-4 1.3-6.5S9.3 7.5 9 6zm6 0c-.3 1.5-1.3 4-1.3 6.5s1 5 1.3 6.5c.5-1.5 2-4 2-6.5 0-2-1.5-4.5-2-6.5z" />
               </svg>
-              <span>IMPERIAL GRAINS</span>
+              <span>AVSR RICE TRADERS</span>
             </div>
             <p className="footer-text">
-              Direct mill exporters specializing in Sortex-clean, moisture-controlled commercial rice varieties. Partnering with global distribution networks since 2015.
+              Your trusted local rice store in Kotanguruvayapalli, Khajipet. Supplying premium quality rice bags to households, caterers, and events since 2015.
             </p>
           </div>
 
@@ -35,10 +35,10 @@ export default function Footer() {
             <h4 className="footer-title">Navigation</h4>
             <ul className="footer-links">
               <li><a href="#">Home</a></li>
-              <li><a href="#about">About Milling</a></li>
+              <li><a href="#about">About Us</a></li>
               <li><a href="#varieties">Rice Varieties</a></li>
-              <li><a href="#calculator">Logistics Calculator</a></li>
-              <li><a href="#contact">Wholesale Contact</a></li>
+              <li><a href="#calculator">Order Calculator</a></li>
+              <li><a href="#contact">Store Contact</a></li>
             </ul>
           </div>
 
@@ -57,7 +57,7 @@ export default function Footer() {
 
           {/* Column 4: Contact Info & Newsletter */}
           <div className="footer-col">
-            <h4 className="footer-title">Trading Desk</h4>
+            <h4 className="footer-title">Store Desk</h4>
             <ul className="footer-contact-list">
               <li className="footer-contact-item">
                 <svg className="footer-contact-icon" viewBox="0 0 24 24">
@@ -72,7 +72,7 @@ export default function Footer() {
                   <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                 </svg>
                 <span className="footer-contact-text">
-                  <strong>Wholesale Desk:</strong> avsrricetraders@gmail.com
+                  <strong>Store Email:</strong> avsrricetraders@gmail.com
                 </span>
               </li>
               <li className="footer-contact-item">
@@ -80,14 +80,14 @@ export default function Footer() {
                   <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
                 </svg>
                 <span className="footer-contact-text">
-                  <strong>Direct Trade Phone:</strong>{' '}
+                  <strong>Store Phone / WhatsApp:</strong>{' '}
                   <a
-                    href="https://wa.me/919949632072?text=Hello%20AVSR%20Rice%20Traders%2C%20I%20am%20interested%20in%20a%20bulk%20rice%20enquiry."
+                    href="https://wa.me/919949632072?text=Hello%20AVSR%20Rice%20Traders%2C%20I%20want%20to%20inquire%20about%20rice%20bags."
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: 'inherit', textDecoration: 'underline' }}
                   >
-                    +91 9949632072 (Direct WhatsApp)
+                    +91 9949632072 (WhatsApp Inquiry)
                   </a>
                 </span>
               </li>
@@ -96,7 +96,7 @@ export default function Footer() {
             {/* Newsletter input */}
             <div className="mt-4">
               <span className="block text-xs font-semibold text-slate-300 uppercase tracking-wider mb-2">
-                Weekly Wholesale Market Price Alert
+                Get Store Price Updates
               </span>
               {!subscribed ? (
                 <form onSubmit={handleSubscribe} className="newsletter-form">
@@ -104,19 +104,19 @@ export default function Footer() {
                     <input
                       type="email"
                       required
-                      placeholder="business@email.com"
+                      placeholder="your@email.com"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       className="newsletter-input"
                     />
                     <button type="submit" className="newsletter-btn">
-                      Alert Me
+                      Subscribe
                     </button>
                   </div>
                 </form>
               ) : (
                 <p className="newsletter-success">
-                  ✓ Successfully subscribed to weekly market updates.
+                  ✓ Successfully subscribed to store price updates.
                 </p>
               )}
             </div>
@@ -127,7 +127,7 @@ export default function Footer() {
 
         {/* Bottom copyright strip */}
         <div className="footer-bottom">
-          <p>© {new Date().getFullYear()} AVSR Rice Traders Private Limited. All Rights Reserved. Sourcing and Export licenses held globally.</p>
+          <p>© {new Date().getFullYear()} AVSR Rice Traders. All Rights Reserved. Premium Rice Bag Supplier, Khajipet, Andhra Pradesh.</p>
         </div>
 
       </div>

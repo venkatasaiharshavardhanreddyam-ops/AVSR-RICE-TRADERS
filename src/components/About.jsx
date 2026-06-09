@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function About() {
   const stats = [
-    { num: "10K+ Tons", lbl: "Monthly Capacity" },
-    { num: "500+", lbl: "B2B Partners" },
-    { num: "0% Impurity", lbl: "Sortex Guarantee" },
-    { num: "40+", lbl: "Global Destinations" }
+    { num: "5,000+", lbl: "Happy Families" },
+    { num: "100%", lbl: "Pure Quality Rice" },
+    { num: "Fast Delivery", lbl: "Across Kadapa" },
+    { num: "10+", lbl: "Premium Varieties" }
   ];
 
   return (
@@ -14,13 +14,13 @@ export default function About() {
         
         {/* Left Side: Copywriting */}
         <div className="about-content-pane">
-          <span className="section-subtitle">Milling Infrastructure</span>
-          <h2 className="about-heading">Industrial-Scale Rice Milling & Supply Chains</h2>
+          <span className="section-subtitle">Local Rice Store</span>
+          <h2 className="about-heading">Serving Khajipet & YSR Kadapa District</h2>
           <p className="about-paragraph">
-            Operating from the heart of fertile agricultural belts, Imperial Grains maintains an integrated supply chain that links directly to cooperative farms and state-owned storage silos. Our milling facilities run continuously, housing multiple lines of Buhler color sorters and grain cleaners.
+            Located in Kotanguruvayapalli, Khajipet, AVSR Rice Traders is your trusted local destination for the finest quality rice bags. We source our rice directly from premium mills, ensuring that only the cleanest, pest-free, and best-tasting grains reach your kitchen.
           </p>
           <p className="about-paragraph">
-            We operate fully certified HACCP and ISO 22000 facilities. Every batch undergoes rigorous quality inspections, checking grain moisture levels, kernel elongation index, and milling broken percentages, ensuring that our products meet high B2B buyer specifications without delay.
+            Whether you need standard Sona Masoori for daily meals, premium Basmati for special occasions, or boiled rice for catering, we stock them in various bag sizes (10kg, 20kg, 25kg, and 50kg) to suit your needs. We pride ourselves on transparent pricing, top quality, and friendly customer service.
           </p>
         </div>
 

@@ -112,7 +112,7 @@ export default function Products() {
 
         <div className="section-title-wrap">
           <span className="section-subtitle">Our Grain Portfolio</span>
-          <h2 className="section-title">Commercial Rice Varieties for Bulk Buyers</h2>
+          <h2 className="section-title">Premium Rice Varieties for Your Home & Catering</h2>
         </div>
 
         {/* Tab Selection buttons */}
@@ -158,7 +158,7 @@ export default function Products() {
                   onClick={() => handleRequestPrice(product.title)}
                   className="btn btn-secondary btn-card-cta"
                 >
-                  Request Container / Truckload Price
+                  Calculate Bag Price & Order
                 </button>
               </div>
             </div>

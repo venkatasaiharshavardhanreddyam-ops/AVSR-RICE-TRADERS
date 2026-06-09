@@ -1,24 +1,24 @@
-# Imperial Grains B2B Wholesale Rice Supply Website
+# AVSR Rice Traders - Local Rice Bags Store Website
 
-A responsive, premium promotional B2B website built for bulk buyers (supermarkets, export houses, catering chains, and agricultural traders).
+A responsive, premium promotional website built for AVSR Rice Traders, a local rice bags shop in Kotanguruvayapalli, Khajipet, Kadapa. It helps local households, catering services, events, and retail customers explore premium rice varieties, calculate order weights and pricing, and place orders directly via WhatsApp.
 
 Built using **React (Functional components with Hooks)**, **semantic HTML5**, and **highly styled Vanilla CSS3** configured with responsive Flexbox/Grid structures and fluid typography.
 
 ## 📁 File Structure
 
 ```
-wholesale-rice-website/
+rice-bags-store-website/
 ├── src/
 │   ├── components/
-│   │   ├── Navbar.jsx      # Navigation header (mobile-toggle drawer, logo, B2B CTA button)
+│   │   ├── Navbar.jsx      # Navigation header (mobile-toggle drawer, logo, WhatsApp CTA button)
 │   │   ├── Hero.jsx        # Value presentation, dark-navy overlay with harvest imagery
 │   │   ├── Features.jsx    # 4-column value proposition grid with custom SVG graphics
-│   │   ├── Products.jsx    # State-filtered commercial categories (Aged Basmati, Sona Masoori, Parboiled)
-│   │   ├── Calculator.jsx  # Interactive weight calculator classifying shipping/freight tiers
-│   │   ├── About.jsx       # Milling capacity description and stats block
-│   │   └── Footer.jsx      # Contact info, WhatsApp export desk, newsletter sign-up
+│   │   ├── Products.jsx    # State-filtered categories (Aged Basmati, Andhra Sona Masoori, Boiled & Broken)
+│   │   ├── Calculator.jsx  # Interactive bag calculator for order weight, pricing, and WhatsApp orders
+│   │   ├── About.jsx       # Local store description and stats block
+│   │   └── Footer.jsx      # Contact info, WhatsApp messaging widget, price updates newsletter
 │   ├── App.jsx             # Aggregator layouts
-│   ├── App.css             # Root CSS variables, variables, grids, and flex parameters
+│   ├── App.css             # Root CSS variables, grids, and flex parameters
 │   ├── main.jsx            # Mount hook
 │   └── index.css           # Global browser resets
 ├── index.html              # HTML shell loading Playfair Display & Poppins fonts

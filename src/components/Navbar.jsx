@@ -23,13 +23,13 @@ export default function Navbar() {
           <li><a href="#" className="nav-link">Home</a></li>
           <li><a href="#about" className="nav-link">About Us</a></li>
           <li><a href="#varieties" className="nav-link">Rice Varieties</a></li>
-          <li><a href="#calculator" className="nav-link">Bulk Calculator</a></li>
+          <li><a href="#calculator" className="nav-link">Order Calculator</a></li>
           <li><a href="#contact" className="nav-link">Contact</a></li>
         </ul>
 
         {/* Action button CTA */}
         <a href="#calculator" className="btn btn-primary nav-cta">
-          Request Bulk Quote
+          Order Bags
         </a>
 
         {/* Mobile menu Toggle */}
@@ -43,10 +43,10 @@ export default function Navbar() {
         <a href="#" className="nav-link" onClick={toggleMenu}>Home</a>
         <a href="#about" className="nav-link" onClick={toggleMenu}>About Us</a>
         <a href="#varieties" className="nav-link" onClick={toggleMenu}>Rice Varieties</a>
-        <a href="#calculator" className="nav-link" onClick={toggleMenu}>Bulk Calculator</a>
+        <a href="#calculator" className="nav-link" onClick={toggleMenu}>Order Calculator</a>
         <a href="#contact" className="nav-link" onClick={toggleMenu}>Contact</a>
         <a href="#calculator" className="btn btn-primary w-full mt-2" onClick={toggleMenu}>
-          Request Bulk Quote
+          Order Bags
         </a>
       </div>
     </nav>
