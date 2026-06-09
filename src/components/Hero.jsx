@@ -12,7 +12,7 @@ export default function Hero() {
       <div className="hero-bg-overlay"></div>
 
       <div className="container hero-content">
-        <span className="hero-tagline">Premium Local Rice Bags Store in Kadapa</span>
+        <span className="hero-tagline">Premium Local Rice Bags Store in KHAJIPET</span>
         <h1 className="hero-title">Premium Quality Rice Bags.<br />For Home, Catering & Events.</h1>
         <p className="hero-subtitle">
           Direct local sourcing from top mills. We stock premium Sortex-cleaned, moisture-controlled rice bags. Ideal for household kitchens, local restaurants, functions, and retail customers across Khajipet and YSR Kadapa district.
