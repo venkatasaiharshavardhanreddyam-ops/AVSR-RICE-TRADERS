@@ -31,7 +31,7 @@ export default function Features() {
   return (
     <section className="section">
       <div className="container">
-        
+
         <div className="section-title-wrap">
           <span className="section-subtitle">Our Commitments</span>
           <h2 className="section-title">Engineered For Premium Wholesale Standards</h2>

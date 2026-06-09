@@ -98,12 +98,16 @@ export default function Calculator() {
                     onChange={(e) => setVariety(e.target.value)}
                     className="form-select"
                   >
-                    <option value="basmati-aged">Aged Traditional Basmati</option>
-                    <option value="basmati-1121">1121 Sella Basmati</option>
-                    <option value="sona-masoori">Premium Sona Masoori</option>
-                    <option value="ponni">Ponni Raw Rice</option>
-                    <option value="parboiled">Premium Parboiled Rice</option>
-                    <option value="broken">100% Broken White Rice</option>
+                    <option value="basmati-aged">Traditional Aged Basmati</option>
+                    <option value="basmati-1121">1121 Golden Sella Basmati</option>
+                    <option value="super-kernel">Super Kernel Fragrant Basmati</option>
+                    <option value="sona-masoori">Sona Masoori</option>
+                    <option value="nellore-sona">Nellore Sona Masoori</option>
+                    <option value="ndlr7">NDLR7</option>
+                    <option value="jilakara">Jilakara</option>
+                    <option value="boiled-rice">Boiled Rice</option>
+                    <option value="chittimuthyalu">Chittimuthyalu</option>
+                    <option value="broken-nukalu">Broken Rice / Nukalu</option>
                   </select>
                 </div>
 
