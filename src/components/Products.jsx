@@ -17,8 +17,7 @@ export default function Products() {
         tag: "Aged 2 Years",
         length: "8.40 mm Average",
         moisture: "12.0% Maximum",
-        packing: "10kg, 20kg, 50kg Bags",
-        origin: "Himalayan Foothills"
+        packing: "10kg, 20kg, 50kg Bags"
       },
       {
         title: "1121 Golden Sella Basmati",
@@ -26,8 +25,7 @@ export default function Products() {
         tag: "Parboiled Sella",
         length: "8.35 mm+ Average",
         moisture: "11.5% Maximum",
-        packing: "25kg, 50kg Bags",
-        origin: "Indo-Gangetic Plain"
+        packing: "25kg, 50kg Bags"
       },
       {
         title: "Super Kernel Fragrant Basmati",
@@ -35,8 +33,7 @@ export default function Products() {
         tag: "Premium Fragrant",
         length: "7.40 mm Average",
         moisture: "12.5% Maximum",
-        packing: "10kg, 25kg, 50kg Bags",
-        origin: "Punjab Region"
+        packing: "10kg, 25kg, 50kg Bags"
       }
     ],
     'Andhra Brands': [
@@ -46,8 +43,7 @@ export default function Products() {
         tag: "Southern Classic",
         length: "5.20 mm Average",
         moisture: "13.0% Maximum",
-        packing: "25kg, 50kg Bags",
-        origin: "Deccan Plateau"
+        packing: "25kg, 50kg Bags"
       },
       {
         title: "Traditional Ponni Raw Rice",
@@ -55,8 +51,7 @@ export default function Products() {
         tag: "Traditional Raw",
         length: "5.00 mm Average",
         moisture: "13.0% Maximum",
-        packing: "20kg, 50kg Bags",
-        origin: "Kaveri River Basin"
+        packing: "20kg, 50kg Bags"
       },
       {
         title: "Long-Grain White Rice",
@@ -64,8 +59,7 @@ export default function Products() {
         tag: "Utility / Catering",
         length: "6.20 mm Average",
         moisture: "14.0% Maximum",
-        packing: "25kg, 50kg Bags",
-        origin: "Central Plains"
+        packing: "25kg, 50kg Bags"
       },
       {
         title: "Thai Jasmine Rice",
@@ -73,8 +67,7 @@ export default function Products() {
         tag: "Aromatic Import",
         length: "6.80 mm Average",
         moisture: "13.5% Maximum",
-        packing: "10kg, 25kg Bags",
-        origin: "Thailand Valleys"
+        packing: "10kg, 25kg Bags"
       }
     ],
     'Boiled & Broken': [
@@ -84,8 +77,7 @@ export default function Products() {
         tag: "High Yielding",
         length: "6.00 mm Average",
         moisture: "13.5% Maximum",
-        packing: "25kg, 50kg Bags",
-        origin: "Coastal Delta"
+        packing: "25kg, 50kg Bags"
       },
       {
         title: "Short Grain Idli Specialty",
@@ -93,8 +85,7 @@ export default function Products() {
         tag: "Fermentation Grade",
         length: "4.80 mm Average",
         moisture: "13.2% Maximum",
-        packing: "25kg, 50kg Bags",
-        origin: "Southern Delta"
+        packing: "25kg, 50kg Bags"
       },
       {
         title: "100% Broken White Rice",
@@ -102,8 +93,7 @@ export default function Products() {
         tag: "Industrial / Flour Mills",
         length: "Broken Grits",
         moisture: "14.5% Maximum",
-        packing: "50kg, Jumbo Bulk Bags",
-        origin: "Milling Byproducts"
+        packing: "50kg, Jumbo Bulk Bags"
       }
     ]
   };
@@ -161,10 +151,6 @@ export default function Products() {
                     <div className="spec-row">
                       <span className="spec-label">Packing Standard:</span>
                       <span className="spec-value">{product.packing}</span>
-                    </div>
-                    <div className="spec-row">
-                      <span className="spec-label">Origin Region:</span>
-                      <span className="spec-value">{product.origin}</span>
                     </div>
                   </div>
                 </div>
