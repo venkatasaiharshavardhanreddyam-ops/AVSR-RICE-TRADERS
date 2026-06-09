@@ -184,6 +184,17 @@ h4 {
   height: 28px;
 }
 
+.logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-gold);
+  object-fit: cover;
+  background-color: #ffffff;
+  padding: 2px;
+  box-shadow: 0 2px 8px rgba(181, 141, 83, 0.2);
+}
+
 .nav-links {
   display: flex;
   align-items: center;

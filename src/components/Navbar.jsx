@@ -14,7 +14,7 @@ export default function Navbar() {
       <div className="container nav-container">
         {/* Brand Logo */}
         <a href="#" className="logo-wrap">
-          <img src={logo} alt="AVSR Rice Traders Logo" className="logo-icon" />
+          <img src={logo} alt="AVSR Rice Traders Logo" className="logo-img" />
           <span>AVSR RICE TRADERS</span>
         </a>
 
