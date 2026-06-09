@@ -69,7 +69,7 @@ export default function Products() {
       },
       {
         title: "Thai Jasmine Rice",
-        image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80",
+        image: "https://ametheus.com/wp-content/uploads/2025/08/jeerakashala_rice_tulsidas_close_up-e1756450091910.webp",
         tag: "Aromatic Import",
         length: "6.80 mm Average",
         moisture: "13.5% Maximum",
@@ -80,7 +80,7 @@ export default function Products() {
     'parboiled-broken': [
       {
         title: "Premium Parboiled Sella",
-        image: "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=600&q=80",
+        image: "https://m.media-amazon.com/images/I/41SOexK0b0L._AC_UF894,1000_QL80_.jpg",
         tag: "High Yielding",
         length: "6.00 mm Average",
         moisture: "13.5% Maximum",
@@ -89,7 +89,7 @@ export default function Products() {
       },
       {
         title: "Short Grain Idli Specialty",
-        image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80",
+        image: "https://5.imimg.com/data5/SELLER/Default/2025/1/479469759/JQ/KK/YT/180338471/small-grain-basmati-rice.jpg",
         tag: "Fermentation Grade",
         length: "4.80 mm Average",
         moisture: "13.2% Maximum",
@@ -98,7 +98,7 @@ export default function Products() {
       },
       {
         title: "100% Broken White Rice",
-        image: "https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=600&q=80",
+        image: "https://cpimg.tistatic.com/05980105/b/4/100-Broken-Rice.jpg",
         tag: "Industrial / Flour Mills",
         length: "Broken Grits",
         moisture: "14.5% Maximum",
