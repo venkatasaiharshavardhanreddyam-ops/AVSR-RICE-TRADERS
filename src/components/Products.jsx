@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 
 export default function Products() {
-  const [activeTab, setActiveTab] = useState('basmati');
+  const [activeTab, setActiveTab] = useState('Basmati');
 
   const categories = [
-    { id: 'basmati', label: 'Basmati & Long Grain' },
-    { id: 'non-basmati', label: 'Non-Basmati Grains' },
-    { id: 'parboiled-broken', label: 'Parboiled & Broken' }
+    { id: 'Basmati', label: 'Basmati & Long Grain' },
+    { id: 'Andhra Brands', label: 'Andhra Brand Grain' },
+    { id: 'Boiled & Broken', label: 'Boiled & Broken Rice' }
   ];
 
   const productsList = {
-    'basmati': [
+    'Basmati': [
       {
         title: "Traditional Aged Basmati",
         image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80",
@@ -39,7 +39,7 @@ export default function Products() {
         origin: "Punjab Region"
       }
     ],
-    'non-basmati': [
+    'Andhra Brands': [
       {
         title: "Premium Sona Masoori",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfQWWvty86VvvFjnFpEqDjXtUjscQV8LfHxw&s",
@@ -77,7 +77,7 @@ export default function Products() {
         origin: "Thailand Valleys"
       }
     ],
-    'parboiled-broken': [
+    'Boiled & Broken': [
       {
         title: "Premium Parboiled Sella",
         image: "https://m.media-amazon.com/images/I/41SOexK0b0L._AC_UF894,1000_QL80_.jpg",
