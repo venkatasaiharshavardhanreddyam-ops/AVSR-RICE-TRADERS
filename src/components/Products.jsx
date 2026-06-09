@@ -42,7 +42,7 @@ export default function Products() {
     'non-basmati': [
       {
         title: "Premium Sona Masoori",
-        image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfQWWvty86VvvFjnFpEqDjXtUjscQV8LfHxw&s",
         tag: "Southern Classic",
         length: "5.20 mm Average",
         moisture: "13.0% Maximum",
@@ -51,7 +51,7 @@ export default function Products() {
       },
       {
         title: "Traditional Ponni Raw Rice",
-        image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMLTsfTD-jUDdASlLE4BqqxWTn89RpklJFfw&s",
         tag: "Traditional Raw",
         length: "5.00 mm Average",
         moisture: "13.0% Maximum",
@@ -60,7 +60,7 @@ export default function Products() {
       },
       {
         title: "Long-Grain White Rice",
-        image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80",
+        image: "https://tiimg.tistatic.com/fp/1/007/665/long-grain-white-rice-in-hard-texture-and-high-in-protein-for-human-consumption-784.jpg",
         tag: "Utility / Catering",
         length: "6.20 mm Average",
         moisture: "14.0% Maximum",
