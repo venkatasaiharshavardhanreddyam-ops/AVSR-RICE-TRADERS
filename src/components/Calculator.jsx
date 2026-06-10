@@ -1,19 +1,8 @@
 import React, { useState } from 'react';
+import { getAllProducts, findProductById } from '../data/products';
 
-const RICE_VARIETIES = {
-  'basmati-aged': { name: 'Traditional Aged Basmati', pricePerKg: 100 },
-  'basmati-1121': { name: '1121 Golden Sella Basmati', pricePerKg: 110 },
-  'super-kernel': { name: 'Super Kernel Fragrant Basmati', pricePerKg: 95 },
-  'sona-masoori': { name: 'Sona Masoori', pricePerKg: 50 },
-  'nellore-sona': { name: 'Nellore Sona Masoori', pricePerKg: 55 },
-  'ndlr7': { name: 'NDLR7', pricePerKg: 45 },
-  'jilakara': { name: 'Jilakara', pricePerKg: 75 },
-  'boiled-rice': { name: 'Boiled Rice', pricePerKg: 40 },
-  'chittimuthyalu': { name: 'Chittimuthyalu', pricePerKg: 80 },
-  'broken-nukalu': { name: 'Broken Rice / Nukalu', pricePerKg: 30 }
-};
-
-export default function Calculator() {
+export default function Calculator({ onAddToCart }) {
+  const products = getAllProducts();
   const [variety, setVariety] = useState('basmati-aged');
   const [bagSize, setBagSize] = useState('25'); // 10, 20, 25, 50 kg
   const [quantity, setQuantity] = useState('5');
@@ -25,7 +14,7 @@ export default function Calculator() {
   const sizeNum = parseInt(bagSize, 10) || 0;
   const totalWeight = qtyNum * sizeNum;
 
-  const selectedVariety = RICE_VARIETIES[variety] || RICE_VARIETIES['basmati-aged'];
+  const selectedVariety = findProductById(variety) || products[0];
   const pricePerBag = selectedVariety.pricePerKg * sizeNum;
   const riceCost = pricePerBag * qtyNum;
 
@@ -56,6 +45,11 @@ export default function Calculator() {
 
   const totalCost = riceCost + deliveryCost;
 
+  const handleAddToCart = () => {
+    if (qtyNum <= 0) return;
+    onAddToCart(selectedVariety, sizeNum, qtyNum);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (qtyNum <= 0) return;
@@ -67,7 +61,7 @@ export default function Calculator() {
       district: 'Kadapa District Delivery'
     }[delivery];
 
-    const message = `Hello AVSR Rice Traders,\n\nI want to order rice bags:\n- Variety: ${selectedVariety.name}\n- Bag Size: ${sizeNum} kg\n- Quantity: ${qtyNum} bags\n- Total Weight: ${totalWeight} kg\n- Delivery: ${deliveryLabel}\n- Est. Cost: ₹${totalCost.toLocaleString()} (Rice: ₹${riceCost.toLocaleString()} + Delivery: ₹${deliveryCost})\n\nPlease confirm availability and delivery time.`;
+    const message = `Hello AVSR Rice Traders,\n\nI want to order rice bags:\n- Variety: ${selectedVariety.title}\n- Bag Size: ${sizeNum} kg\n- Quantity: ${qtyNum} bags\n- Total Weight: ${totalWeight} kg\n- Delivery: ${deliveryLabel}\n- Est. Cost: ₹${totalCost.toLocaleString()} (Rice: ₹${riceCost.toLocaleString()} + Delivery: ₹${deliveryCost})\n\nPlease confirm availability and delivery time.`;
     
     const whatsappUrl = `https://wa.me/919949632072?text=${encodeURIComponent(message)}`;
     
@@ -133,16 +127,11 @@ export default function Calculator() {
                     onChange={(e) => setVariety(e.target.value)}
                     className="form-select"
                   >
-                    <option value="basmati-aged">Traditional Aged Basmati (₹100/kg)</option>
-                    <option value="basmati-1121">1121 Golden Sella Basmati (₹110/kg)</option>
-                    <option value="super-kernel">Super Kernel Fragrant Basmati (₹95/kg)</option>
-                    <option value="sona-masoori">Sona Masoori (₹50/kg)</option>
-                    <option value="nellore-sona">Nellore Sona Masoori (₹55/kg)</option>
-                    <option value="ndlr7">NDLR7 (₹45/kg)</option>
-                    <option value="jilakara">Jilakara (₹75/kg)</option>
-                    <option value="boiled-rice">Boiled Rice (₹40/kg)</option>
-                    <option value="chittimuthyalu">Chittimuthyalu (₹80/kg)</option>
-                    <option value="broken-nukalu">Broken Rice / Nukalu (₹30/kg)</option>
+                    {products.map((p) => (
+                      <option key={p.id} value={p.id}>
+                        {p.title} (₹{p.pricePerKg}/kg)
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -219,9 +208,22 @@ export default function Calculator() {
                   </div>
                 )}
 
-                <button type="submit" className="btn btn-primary w-full mt-2">
-                  Send Order Inquiry via WhatsApp
-                </button>
+                {/* Double action layout */}
+                <div className="calc-actions-grid mt-2">
+                  <button 
+                    type="button" 
+                    onClick={handleAddToCart}
+                    className="btn btn-secondary"
+                  >
+                    Add Estimate to Cart
+                  </button>
+                  <button 
+                    type="submit" 
+                    className="btn btn-primary"
+                  >
+                    Inquire via WhatsApp
+                  </button>
+                </div>
 
               </form>
             ) : (
@@ -232,7 +234,7 @@ export default function Calculator() {
                 <div>
                   <h3 className="text-xl font-bold text-slate-800">Inquiry Sent to WhatsApp</h3>
                   <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-                    We have generated your order details: {qtyNum} bags of {selectedVariety.name} ({totalWeight} kg total). Your browser has opened WhatsApp to send this message to us.
+                    We have generated your order details: {qtyNum} bags of {selectedVariety.title} ({totalWeight} kg total). Your browser has opened WhatsApp to send this message to us.
                   </p>
                 </div>
                 <button onClick={handleReset} className="btn btn-outline w-full">
